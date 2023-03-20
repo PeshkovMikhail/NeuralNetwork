@@ -19,6 +19,18 @@ class Sigmoid(ActivationFunc):
     
     def derivative(self, x) -> float:
         return x * (1 - x)
+
+class Softmax(ActivationFunc):
+    def __init__(self) -> None:
+        pass
+
+    def __call__(self, x) -> float:
+        exp_element=np.exp(x-x.max())
+        return exp_element/np.sum(exp_element,axis=0)
+    
+    def derivative(self, x) -> float:
+        exp_element=np.exp(x-x.max())
+        return exp_element/np.sum(exp_element,axis=0)*(1-exp_element/np.sum(exp_element,axis=0))
     
 
 class ReLu(ActivationFunc):

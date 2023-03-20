@@ -23,12 +23,8 @@ if __name__ == "__main__":
             r = out(x)
 
             e = o - r
-            e = out.backward(x, e, 0.4)
-            e = input.backward(i, e, 0.4)
-            if epoch % 1000 == 0:
-                print(e, i)
-                print("------")
-
+            e = out.backward(e, 0.4)
+            e = input.backward(e, 0.4)
     for i in inputs:
         x = input(i)
         print(out(x))
