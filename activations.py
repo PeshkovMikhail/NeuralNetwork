@@ -20,6 +20,13 @@ class Sigmoid(ActivationFunc):
     def derivative(self, x) -> float:
         return x * (1 - x)
     
+class Softmax(ActivationFunc):
+    def __init__(self) -> None:
+        pass
+
+    def __call__(self, x) -> float:
+        return 
+    
 
 class ReLu(ActivationFunc):
     def __init__(self) -> None:
