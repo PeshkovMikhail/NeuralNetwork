@@ -45,10 +45,13 @@ if __name__ == "__main__":
 
             res = model.forward(img.reshape((1, 1, 28, 28))/255.0)
             loss_val += model.backward(label)
-            if i % 1000 == 0 and i > 0:
-                print(f"epoch: {epoch}, loss: {loss_val/1000}")
+            if i % 100 == 0 and i > 0:
+                print(f"epoch: {epoch}, loss: {loss_val/100}")
                 loss_val = 0
+            break
+        break
 
+    print(model.layers[0]._weights)
 
     successed = 0
 

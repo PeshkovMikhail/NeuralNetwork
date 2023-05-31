@@ -33,7 +33,10 @@ class ReLu(ActivationFunc):
         pass
 
     def __call__(self, x) -> float:
-        return 0
+        return np.maximum(0, x)
     
     def derivative(self, x):
-        pass
+        res = x.copy()
+        res[res>=0] = 1
+        res[res<0] = 0
+        return res

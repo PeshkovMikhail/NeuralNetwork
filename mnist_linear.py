@@ -29,6 +29,7 @@ class MnistLinear:
         return loss_val
         
 if __name__ == "__main__":
+    np.random.seed(0)
     #mnist.init()
     x_train, t_train, x_test, t_test = mnist.load()
     model = MnistLinear()
@@ -45,6 +46,11 @@ if __name__ == "__main__":
             if i % 10000 == 0 and i > 0:
                 print(f"epoch: {epoch}, loss: {loss_val/10000}")
                 loss_val = 0
+            break
+        break
+
+    print(model.layers[0].weights)
+    exit(0)
 
 
     successed = 0
