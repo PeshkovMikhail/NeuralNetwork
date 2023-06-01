@@ -86,8 +86,8 @@ class ConvLayer:
 
         dxp = np.pad(dx, ((0,), (0,), (self._padding,), (self._padding, )), 'constant')
 
-        w_ = np.zeros_like(self._weights)
-        w_ = self._weights[:, :, ::-1, ::-1]
+        #w_ = np.zeros_like(self._weights)
+        w_ = self._weights.copy()#[:, :, ::-1, ::-1]
         
         for n in range(N):
             for f in range(self._c_out):
